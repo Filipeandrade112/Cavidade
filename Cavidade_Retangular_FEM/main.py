@@ -1,5 +1,7 @@
 import os
 import numpy as np
+import scipy.sparse.linalg as spla
+
 from mesh_generation import generate_mesh
 from fem import (
     assemble_eigen_system_TE,
@@ -11,7 +13,7 @@ from fem import (
 )
 from utils import verificar_dados
 from plot import plot_modes
-import scipy.sparse.linalg as spla
+
 
 # Pega o diretório exato onde o arquivo main.py está salvo no seu computador
 diretorio_atual = os.path.dirname(os.path.abspath(__file__))
