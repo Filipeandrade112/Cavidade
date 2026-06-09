@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from scipy.interpolate import griddata
 import numpy as np
 
-def plot_modes(vertices, elementos, eigenvectors, mode_type, modes_plotted, num_modes=5):
+def plot_modes(vertices, elementos, eigenvectors, mode_type, modes_plotted, num_modes=5, save_path=None):
     """
     Plota a malha e os primeiros num_modes modos com um mapa de cores (contourf).
     mode_type: "TE" ou "TM"
@@ -29,6 +29,9 @@ def plot_modes(vertices, elementos, eigenvectors, mode_type, modes_plotted, num_
     yi = np.linspace(y_min, y_max, 200)
     XI, YI = np.meshgrid(xi, yi)
 
+    # Níveis de cor fixos de 0 a 1
+    niveis_cor = np.linspace(0, 1, 21)
+
     # Plotar os modos com contourf (preenchimento)
     for i in range(num_modes):
         eigenvector = eigenvectors[:, i]
@@ -37,7 +40,11 @@ def plot_modes(vertices, elementos, eigenvectors, mode_type, modes_plotted, num_
         # Interpolar
         ZI = griddata(vertices, eigenvector, (XI, YI), method='cubic')
 
-        cs = axs[i+1].contourf(XI, YI, ZI, levels=20, cmap='jet')
+        # Aplicar o módulo (valores positivos) e normalizar entre 0 e 1 por gráfico
+        ZI_abs = np.abs(ZI)
+        ZI_norm = ZI_abs / np.nanmax(ZI_abs) # nanmax evita erros nas bordas da interpolação
+
+        cs = axs[i+1].contourf(XI, YI, ZI_norm, levels=niveis_cor, cmap='jet', vmin=0, vmax=1)
         axs[i+1].set_title(f"{mode_type}_{m}{n}")
         axs[i+1].set_xlabel('$x$ (m)')
         axs[i+1].set_ylabel('$y$ (m)')
@@ -47,4 +54,10 @@ def plot_modes(vertices, elementos, eigenvectors, mode_type, modes_plotted, num_
         fig.colorbar(cs, ax=axs[i+1])
 
     plt.tight_layout()
+
+    # --- NOVO: Salvar a imagem se um caminho for passado ---
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        print(f"Gráfico {mode_type} salvo com sucesso em: {save_path}")
+        
     plt.show()

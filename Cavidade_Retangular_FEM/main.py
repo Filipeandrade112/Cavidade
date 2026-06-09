@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from mesh_generation import generate_mesh
 from fem import (
@@ -11,6 +12,13 @@ from fem import (
 from utils import verificar_dados
 from plot import plot_modes
 import scipy.sparse.linalg as spla
+
+# Pega o diretório exato onde o arquivo main.py está salvo no seu computador
+diretorio_atual = os.path.dirname(os.path.abspath(__file__))
+    
+# Junta o diretório atual com a pasta 'Graficos'
+pasta_graficos = os.path.join(diretorio_atual, "Graficos")
+os.makedirs(pasta_graficos, exist_ok=True)
 
 def run_eigen_simulation_P1(a=0.08, b=0.04, h=0.001):
     # Modos desejados na ordem solicitada
@@ -116,11 +124,13 @@ def run_eigen_simulation_P1(a=0.08, b=0.04, h=0.001):
 
     # Plotar modos TE (5 primeiros)
     te_modes_plotted = [(m,n) for (_,_,m,n,_) in matched_TE[:5]]
-    plot_modes(vertices, elementos, eigenvectors_TE_ordered, "TE", te_modes_plotted, num_modes=5)
+    caminho_te = os.path.join(pasta_graficos, "MODOS TE.png")
+    plot_modes(vertices, elementos, eigenvectors_TE_ordered, "TE", te_modes_plotted, num_modes=5, save_path=caminho_te)
 
     # Plotar modos TM (5 primeiros)
     tm_modes_plotted = [(m,n) for (_,_,m,n,_) in matched_TM[:5]]
-    plot_modes(vertices, elementos, eigenvectors_TM_ordered, "TM", tm_modes_plotted, num_modes=5)
+    caminho_tm = os.path.join(pasta_graficos, "MODOS TM.png")
+    plot_modes(vertices, elementos, eigenvectors_TM_ordered, "TM", tm_modes_plotted, num_modes=5, save_path=caminho_tm)
 
 
 if __name__ == "__main__":
