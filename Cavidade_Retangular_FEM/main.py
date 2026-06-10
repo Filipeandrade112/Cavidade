@@ -22,7 +22,7 @@ diretorio_atual = os.path.dirname(os.path.abspath(__file__))
 pasta_graficos = os.path.join(diretorio_atual, "Graficos")
 os.makedirs(pasta_graficos, exist_ok=True)
 
-def run_eigen_simulation_P1(a=0.08, b=0.04, h=0.001):
+def run_eigen_simulation_P1(a=0.08, b=0.04, h=0.01):
     # Modos desejados na ordem solicitada
     te_modes = [
         (1, 0),  # TE_10
@@ -138,5 +138,5 @@ def run_eigen_simulation_P1(a=0.08, b=0.04, h=0.001):
 if __name__ == "__main__":
     a = 0.08
     b = 0.04
-    h = 0.001
+    h = 0.01
     run_eigen_simulation_P1(a=a, b=b, h=h)
