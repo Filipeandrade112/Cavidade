@@ -1,0 +1,12 @@
+Análise Micro-ondas da cavidade
+
+- Plotar funções seno, cosseno, Bessel e matheiu pra validar as curvas da biblioteca
+- Queremos os modos cujo campo estão na direção z para elétrica e x ou y para a magnética para acoplar a ponta que vai no microscópio
+- frequência baixa de cerca de 2ghz
+- Detecção heterodinia e outras coisas como aplicação
+- Vamos usar modos degenerados para conseguir a mesma frequência para dois modos diferentes
+- Fazer sweep para entender o comportamento dos modos em função das frequências
+- Simular com um material (Safira) com permissividade maior para ver se abaixa a frequência de ressonância.
+- A orientação do componente seria para excitar o foco
+
+
