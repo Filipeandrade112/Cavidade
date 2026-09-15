@@ -156,7 +156,20 @@ class CavidadeElipticaEigenmode:
         )
         plot_sheet_xz.model = False
 
-        print("Geometria finalizada com sucesso.")
+        plot_sheet_yz = self.hfss.modeler.create_polyline(
+            points=[
+                [0, -b_val, 0],
+                [0, b_val, 0],
+                [0, b_val, L_val],
+                [0, -b_val, L_val],
+                [0, -b_val, 0]
+            ],
+            cover_surface=True,
+            name="Plot_Sheet_YZ"
+        )
+        plot_sheet_yz.model = False
+
+        print("Geometria e planos de corte finalizados com sucesso.")
 
     def setup_analysis(self):
         """Configura o setup de simulação Eigenmode."""
@@ -179,7 +192,7 @@ class CavidadeElipticaEigenmode:
         print("Para visualizar as frequências de ressonância e gerar os gráficos de campo:")
         print("1. Na interface do HFSS, vá até 'Results' -> 'Solution Data'.")
         print("2. Você verá as frequências calculadas para cada modo.")
-        print("3. Para visualizar os campos, selecione 'Plot_Sheet_XY' ou 'XZ', vá em 'Field Overlays' e plote 'Mag_E' ou 'Mag_H'.")
+        print("3. Para visualizar os campos, selecione 'Plot_Sheet_XY', 'Plot_Sheet_XZ' ou 'Plot_Sheet_YZ', vá em 'Field Overlays' e plote 'Mag_E' ou 'Mag_H'.")
 
     def plot_fields(self):
         """Desabilitado para evitar instabilidade no PostProcessor."""
@@ -190,7 +203,7 @@ class CavidadeElipticaEigenmode:
         pass
 
 if __name__ == "__main__":
-    num_modes = 6  # Número de modos para calcular (pode alterar se quiser mais)
+    num_modes = 5  # Número de modos para calcular (pode alterar se quiser mais)
     cavidade = CavidadeElipticaEigenmode(non_graphical=False, num_modes=num_modes)
     print("Projeto gerado no HFSS! Iniciando a simulação...")
     
