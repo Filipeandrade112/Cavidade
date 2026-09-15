@@ -1,0 +1,199 @@
+svg_content = """<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="100%" height="100%">
+    <defs>
+        <style>
+            .label { font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 18px; fill: #000; }
+            .label-start { font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 18px; fill: #000; text-anchor: start; }
+            .label-middle { font-family: 'Times New Roman', Times, serif; font-style: italic; font-size: 18px; fill: #000; text-anchor: middle; }
+            .dim-line { stroke: #000; stroke-width: 1; }
+            .guide-line { stroke: #888; stroke-width: 0.8; }
+            .proj-line { stroke: #888; stroke-width: 1; stroke-dasharray: 5,5; }
+            .shape-line { stroke: #222; stroke-width: 1.2; stroke-linejoin: round; }
+            .axis-line { stroke: #000; stroke-width: 1; }
+        </style>
+        
+        <!-- Markers -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#000" />
+        </marker>
+        <marker id="arrow-rev" viewBox="0 0 10 10" refX="0" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+            <path d="M 10 1 L 0 5 L 10 9 z" fill="#000" />
+        </marker>
+        <marker id="arrow-axis" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#000" />
+        </marker>
+
+        <!-- Gradients Prism -->
+        <linearGradient id="gradFront" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#C88349" />
+            <stop offset="100%" stop-color="#8E5224" />
+        </linearGradient>
+        <linearGradient id="gradRight" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#8E5224" />
+            <stop offset="100%" stop-color="#542C0F" />
+        </linearGradient>
+        <linearGradient id="gradTop" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#EAA676" />
+            <stop offset="100%" stop-color="#C88349" />
+        </linearGradient>
+
+        <!-- Gradients Cylinder -->
+        <linearGradient id="gradCylBody" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#696E7D" />
+            <stop offset="20%" stop-color="#EBF0F5" />
+            <stop offset="50%" stop-color="#A1A6B4" />
+            <stop offset="80%" stop-color="#EBF0F5" />
+            <stop offset="100%" stop-color="#696E7D" />
+        </linearGradient>
+        <linearGradient id="gradCylTop" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" />
+            <stop offset="100%" stop-color="#B0B5C4" />
+        </linearGradient>
+
+        <!-- Gradients Ellipsoid -->
+        <linearGradient id="gradEllBody" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7A5C13" />
+            <stop offset="25%" stop-color="#F5D061" />
+            <stop offset="50%" stop-color="#C59B27" />
+            <stop offset="80%" stop-color="#F5D061" />
+            <stop offset="100%" stop-color="#7A5C13" />
+        </linearGradient>
+        <linearGradient id="gradEllTop" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFF2A3" />
+            <stop offset="100%" stop-color="#C59B27" />
+        </linearGradient>
+    </defs>
+
+    <!-- PROJECTION LINES -->
+    <line x1="80" y1="245" x2="80" y2="345" class="proj-line" />
+    <line x1="160" y1="245" x2="160" y2="345" class="proj-line" />
+
+    <line x1="340" y1="220" x2="340" y2="405" class="proj-line" />
+    <line x1="460" y1="220" x2="460" y2="405" class="proj-line" />
+
+    <line x1="620" y1="215" x2="620" y2="405" class="proj-line" />
+    <line x1="780" y1="215" x2="780" y2="405" class="proj-line" />
+
+    <!-- ==================== 3D SHAPES ==================== -->
+    
+    <!-- 1. PRISM -->
+    <path d="M 80 100 L 160 100 L 160 240 L 80 240 Z" fill="url(#gradFront)" class="shape-line" />
+    <path d="M 80 100 L 115 75 L 195 75 L 160 100 Z" fill="url(#gradTop)" class="shape-line" />
+    <path d="M 160 100 L 195 75 L 195 215 L 160 240 Z" fill="url(#gradRight)" class="shape-line" />
+
+    <!-- 2. CYLINDER -->
+    <path d="M 340 100 L 340 215 A 60 25 0 0 0 460 215 L 460 100 Z" fill="url(#gradCylBody)" class="shape-line" />
+    <ellipse cx="400" cy="100" rx="60" ry="25" fill="url(#gradCylTop)" class="shape-line" />
+
+    <!-- 3. ELLIPSOID -->
+    <path d="M 620 95 L 620 210 A 80 30 0 0 0 780 210 L 780 95 Z" fill="url(#gradEllBody)" class="shape-line" />
+    <ellipse cx="700" cy="95" rx="80" ry="30" fill="url(#gradEllTop)" class="shape-line" />
+
+    <!-- ==================== DIMENSIONS (3D) ==================== -->
+    
+    <!-- Prism Dims -->
+    <line x1="80" y1="240" x2="80" y2="260" class="guide-line" />
+    <line x1="160" y1="240" x2="160" y2="260" class="guide-line" />
+    <line x1="80" y1="255" x2="160" y2="255" class="dim-line" marker-start="url(#arrow-rev)" marker-end="url(#arrow)" />
+    <rect x="112" y="238" width="16" height="14" fill="#fff" opacity="0.8"/>
+    <text x="120" y="250" class="label-middle">a</text>
+
+    <line x1="160" y1="240" x2="175" y2="255" class="guide-line" />
+    <line x1="195" y1="215" x2="210" y2="230" class="guide-line" />
+    <line x1="170" y1="250" x2="205" y2="225" class="dim-line" marker-start="url(#arrow-rev)" marker-end="url(#arrow)" />
+    <rect x="189" y="228" width="12" height="14" fill="#fff" opacity="0.8" transform="rotate(-35 195 235)"/>
+    <text x="195" y="245" class="label-middle">b</text>
+
+    <line x1="80" y1="100" x2="60" y2="100" class="guide-line" />
+    <line x1="80" y1="240" x2="60" y2="240" class="guide-line" />
+    <line x1="65" y1="100" x2="65" y2="240" class="dim-line" marker-start="url(#arrow-rev)" marker-end="url(#arrow)" />
+    <text x="50" y="175" class="label-middle">d</text>
+
+    <!-- Cylinder Dims -->
+    <line x1="400" y1="100" x2="460" y2="100" class="dim-line" marker-end="url(#arrow)" />
+    <circle cx="400" cy="100" r="2" fill="#000" />
+    <text x="430" y="93" class="label-middle">a</text>
+
+    <line x1="460" y1="100" x2="485" y2="100" class="guide-line" />
+    <line x1="460" y1="215" x2="485" y2="215" class="guide-line" />
+    <line x1="480" y1="100" x2="480" y2="215" class="dim-line" marker-start="url(#arrow-rev)" marker-end="url(#arrow)" />
+    <text x="495" y="162" class="label-middle">d</text>
+
+    <!-- Ellipsoid Dims -->
+    <line x1="700" y1="95" x2="780" y2="95" class="dim-line" marker-end="url(#arrow)" />
+    <circle cx="700" cy="95" r="2" fill="#000" />
+    <text x="740" y="88" class="label-middle">a</text>
+    
+    <line x1="700" y1="95" x2="700" y2="65" class="dim-line" marker-end="url(#arrow)" />
+    <text x="685" y="85" class="label-middle">b</text>
+
+    <line x1="780" y1="95" x2="805" y2="95" class="guide-line" />
+    <line x1="780" y1="210" x2="805" y2="210" class="guide-line" />
+    <line x1="800" y1="95" x2="800" y2="210" class="dim-line" marker-start="url(#arrow-rev)" marker-end="url(#arrow)" />
+    <text x="815" y="157" class="label-middle">d</text>
+
+    <!-- ==================== Z-AXES ==================== -->
+    
+    <!-- Prism Z-axis -->
+    <line x1="240" y1="260" x2="240" y2="40" class="axis-line" marker-end="url(#arrow-axis)" />
+    <line x1="235" y1="240" x2="245" y2="240" class="axis-line" />
+    <line x1="235" y1="100" x2="245" y2="100" class="axis-line" />
+    <text x="252" y="245" class="label-start">z = 0</text>
+    <text x="252" y="105" class="label-start">z = d</text>
+    <text x="240" y="28" class="label-middle">z</text>
+
+    <!-- Cylinder Z-axis -->
+    <line x1="520" y1="260" x2="520" y2="40" class="axis-line" marker-end="url(#arrow-axis)" />
+    <line x1="515" y1="240" x2="525" y2="240" class="axis-line" />
+    <line x1="515" y1="125" x2="525" y2="125" class="axis-line" />
+    <text x="532" y="245" class="label-start">z = 0</text>
+    <text x="532" y="130" class="label-start">z = d</text>
+    <text x="520" y="28" class="label-middle">z</text>
+
+    <!-- Ellipsoid Z-axis -->
+    <line x1="840" y1="260" x2="840" y2="40" class="axis-line" marker-end="url(#arrow-axis)" />
+    <line x1="835" y1="240" x2="845" y2="240" class="axis-line" />
+    <line x1="835" y1="125" x2="845" y2="125" class="axis-line" />
+    <text x="852" y="245" class="label-start">z = 0</text>
+    <text x="852" y="130" class="label-start">z = d</text>
+    <text x="840" y="28" class="label-middle">z</text>
+
+
+    <!-- ==================== 2D SHAPES ==================== -->
+    
+    <!-- Prism 2D -->
+    <rect x="80" y="350" width="80" height="70" stroke="#557355" stroke-width="1.5" fill="rgba(85,115,85,0.08)" />
+    <line x1="80" y1="435" x2="160" y2="435" class="dim-line" marker-start="url(#arrow-rev)" marker-end="url(#arrow)" />
+    <text x="120" y="450" class="label-middle">a</text>
+    <line x1="80" y1="420" x2="80" y2="440" class="guide-line" />
+    <line x1="160" y1="420" x2="160" y2="440" class="guide-line" />
+    
+    <line x1="175" y1="350" x2="175" y2="420" class="dim-line" marker-start="url(#arrow-rev)" marker-end="url(#arrow)" />
+    <text x="190" y="390" class="label-middle">b</text>
+    <line x1="160" y1="350" x2="180" y2="350" class="guide-line" />
+    <line x1="160" y1="420" x2="180" y2="420" class="guide-line" />
+
+    <!-- Cylinder 2D -->
+    <circle cx="400" cy="410" r="60" stroke="#696E7D" stroke-width="1.5" fill="rgba(105,110,125,0.08)" />
+    <line x1="400" y1="410" x2="460" y2="410" class="dim-line" marker-end="url(#arrow)" />
+    <circle cx="400" cy="410" r="2" fill="#000" />
+    <text x="430" y="403" class="label-middle">a</text>
+
+    <!-- Ellipsoid 2D -->
+    <ellipse cx="700" cy="410" rx="80" ry="45" stroke="#B87333" stroke-width="1.5" fill="rgba(184,115,51,0.08)" />
+    <line x1="700" y1="410" x2="780" y2="410" class="dim-line" marker-end="url(#arrow)" />
+    <circle cx="700" cy="410" r="2" fill="#000" />
+    <text x="740" y="403" class="label-middle">a</text>
+    
+    <line x1="700" y1="410" x2="700" y2="365" class="dim-line" marker-end="url(#arrow)" />
+    <rect x="690" y="375" width="8" height="15" fill="#fff" opacity="0.8"/>
+    <text x="685" y="392" class="label-middle">b</text>
+
+</svg>
+"""
+
+file_path = 'cavidades_ressonantes.svg'
+with open(file_path, 'w', encoding='utf-8') as f:
+    f.write(svg_content)
+
+print(f"SVG saved to {file_path}")

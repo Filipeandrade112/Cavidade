@@ -1,0 +1,158 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:24:25 PM  Sep 14, 2026
+Running as user : FILIPEANDRADE\filip
+Temp directory: C:\Users\filip\AppData\Local\Temp
+Project directory: C:\Users\filip\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [info] GRPC server running on port: 58329. 
+        [error] Script macro error: Loading project failed: C:/Users/filip/Desktop/Github/Cavidade/Cavidade_Eliptica.
+-- Message Window --
+Stopping Batch Run: 9:24:51 PM  Sep 14, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:26:25 PM  Sep 14, 2026
+Running as user : FILIPEANDRADE\filip
+Temp directory: C:\Users\filip\AppData\Local\Temp
+Project directory: C:\Users\filip\Documents\Ansoft
+The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] GRPC server running on port: 64914. 
+        [info] The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Proj (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Modal Network)
+          [warning] 'Solve inside' for object 'Metal_Cavity' is unset, due to material assignment change. (09:26:42 PM  Sep 14, 2026)
+-- Message Window --
+Stopping Batch Run: 9:28:06 PM  Sep 14, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:35:24 PM  Sep 14, 2026
+Running as user : FILIPEANDRADE\filip
+Temp directory: C:\Users\filip\AppData\Local\Temp
+Project directory: C:\Users\filip\Documents\Ansoft
+The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] GRPC server running on port: 52847. 
+        [info] The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Proj (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Modal Network)
+          [info] An interpolating frequency sweep with 201 points has been started using HFSS - Solving Distributed. (09:39:24 PM  Sep 14, 2026)
+          [info] Interpolating frequency sweep complete. Converged. (09:39:24 PM  Sep 14, 2026)
+          [info] Normal completion of simulation on server: Local Machine. (09:39:24 PM  Sep 14, 2026)
+-- Message Window --
+Stopping Batch Run: 9:40:05 PM  Sep 14, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:46:34 PM  Sep 14, 2026
+Running as user : FILIPEANDRADE\filip
+Temp directory: C:\Users\filip\AppData\Local\Temp
+Project directory: C:\Users\filip\Documents\Ansoft
+The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] GRPC server running on port: 60315. 
+        [info] The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Proj (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Modal Network)
+          [info] An interpolating frequency sweep with 1001 points has been started using HFSS - Solving Distributed. (09:49:29 PM  Sep 14, 2026)
+          [info] Interpolating frequency sweep complete. Converged. (09:49:29 PM  Sep 14, 2026)
+          [info] Normal completion of simulation on server: Local Machine. (09:49:29 PM  Sep 14, 2026)
+          [warning] Cavidade: Solutions have been invalidated. Undo to recover. (09:49:30 PM  Sep 14, 2026)
+-- Message Window --
+Stopping Batch Run: 9:49:51 PM  Sep 14, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:57:40 PM  Sep 14, 2026
+Running as user : FILIPEANDRADE\filip
+Temp directory: C:\Users\filip\AppData\Local\Temp
+Project directory: C:\Users\filip\Documents\Ansoft
+The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] GRPC server running on port: 63465. 
+        [info] The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Proj (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Modal Network)
+          [info] An interpolating frequency sweep with 1001 points has been started using HFSS - Solving Distributed. (10:00:48 PM  Sep 14, 2026)
+          [info] Interpolating frequency sweep complete. Converged. (10:00:48 PM  Sep 14, 2026)
+          [info] Normal completion of simulation on server: Local Machine. (10:00:48 PM  Sep 14, 2026)
+          [warning] Cavidade: Solutions have been invalidated. Undo to recover. (10:00:49 PM  Sep 14, 2026)
+          [warning] The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:00:57 PM  Sep 14, 2026)
+-- Message Window --
+Stopping Batch Run: 10:02:41 PM  Sep 14, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:03:00 PM  Sep 14, 2026
+Running as user : FILIPEANDRADE\filip
+Temp directory: C:\Users\filip\AppData\Local\Temp
+Project directory: C:\Users\filip\Documents\Ansoft
+The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] GRPC server running on port: 53925. 
+        [info] The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Proj (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Modal Network)
+          [info] An interpolating frequency sweep with 1001 points has been started using HFSS - Solving Distributed. (10:06:53 PM  Sep 14, 2026)
+          [info] Interpolating frequency sweep complete. Converged. (10:06:53 PM  Sep 14, 2026)
+          [info] Normal completion of simulation on server: Local Machine. (10:06:53 PM  Sep 14, 2026)
+          [warning] The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:07:04 PM  Sep 14, 2026)
+-- Message Window --
+Stopping Batch Run: 10:08:54 PM  Sep 14, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:09:03 PM  Sep 14, 2026
+Running as user : FILIPEANDRADE\filip
+Temp directory: C:\Users\filip\AppData\Local\Temp
+Project directory: C:\Users\filip\Documents\Ansoft
+The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] GRPC server running on port: 64639. 
+        [info] The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Proj (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Modal Network)
+          [info] An interpolating frequency sweep with 1001 points has been started using HFSS - Solving Distributed. (10:12:48 PM  Sep 14, 2026)
+          [info] Interpolating frequency sweep complete. Converged. (10:12:48 PM  Sep 14, 2026)
+          [info] Normal completion of simulation on server: Local Machine. (10:12:48 PM  Sep 14, 2026)
+          [warning] The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:13:02 PM  Sep 14, 2026)
+-- Message Window --
+Stopping Batch Run: 10:13:07 PM  Sep 14, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:13:29 PM  Sep 14, 2026
+Running as user : FILIPEANDRADE\filip
+Temp directory: C:\Users\filip\AppData\Local\Temp
+Project directory: C:\Users\filip\Documents\Ansoft
+The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] GRPC server running on port: 60952. 
+        [info] The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Proj (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Modal Network)
+          [info] An interpolating frequency sweep with 1001 points has been started using HFSS - Solving Distributed. (10:16:41 PM  Sep 14, 2026)
+          [info] Interpolating frequency sweep complete. Converged. (10:16:41 PM  Sep 14, 2026)
+          [info] Normal completion of simulation on server: Local Machine. (10:16:41 PM  Sep 14, 2026)
+          [warning] The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:16:56 PM  Sep 14, 2026)
+-- Message Window --
+Stopping Batch Run: 10:19:07 PM  Sep 14, 2026
