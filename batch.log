@@ -156,3 +156,62 @@ The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want 
           [warning] The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:16:56 PM  Sep 14, 2026)
 -- Message Window --
 Stopping Batch Run: 10:19:07 PM  Sep 14, 2026
+ 
+Ansys Electronics Desktop Student Version 2025.2.4, Build: 2025-11-06 17:01:32
+Location: C:\Program Files\ANSYS Inc\ANSYS Student\v252\AnsysEM\ansysedtsv.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 11:43:27 AM  Sep 15, 2026
+Running as user : GAPTEM01\filip
+Temp directory: C:\temp
+Project directory: C:\Users\filip\Documents\Ansoft
+The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] gRPC server started on port 60212 of local host. Only connections from the local host initiated by the same user are permitted. 
+        [info] The project 'Cavidade_Eliptica_Proj' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Proj (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Modal Network)
+          [warning] Renormalizing the port impedance will not impact the field results if the 'Include Port Post Processing Effects' is disabled in Edit Sources. (11:43:56 AM  Sep 15, 2026)
+          [info] An interpolating frequency sweep with 1001 points has been started using HFSS - Solving Distributed. (11:45:51 AM  Sep 15, 2026)
+          [info] Interpolating frequency sweep complete. Converged. (11:45:51 AM  Sep 15, 2026)
+          [info] Normal completion of simulation on server: Local Machine. (11:45:51 AM  Sep 15, 2026)
+          [warning] The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (11:45:56 AM  Sep 15, 2026)
+-- Message Window --
+Stopping Batch Run: 11:57:43 AM  Sep 15, 2026
+ 
+Ansys Electronics Desktop Student Version 2025.2.4, Build: 2025-11-06 17:01:32
+Location: C:\Program Files\ANSYS Inc\ANSYS Student\v252\AnsysEM\ansysedtsv.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 12:01:04 PM  Sep 15, 2026
+Running as user : GAPTEM01\filip
+Temp directory: C:\temp
+Project directory: C:\Users\filip\Documents\Ansoft
+ 
+Ansys Electronics Desktop Student Version 2025.2.4, Build: 2025-11-06 17:01:32
+Location: C:\Program Files\ANSYS Inc\ANSYS Student\v252\AnsysEM\ansysedtsv.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 12:02:34 PM  Sep 15, 2026
+Running as user : GAPTEM01\filip
+Temp directory: C:\temp
+Project directory: C:\Users\filip\Documents\Ansoft
+ 
+Ansys Electronics Desktop Student Version 2025.2.4, Build: 2025-11-06 17:01:32
+Location: C:\Program Files\ANSYS Inc\ANSYS Student\v252\AnsysEM\ansysedtsv.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 12:06:58 PM  Sep 15, 2026
+Running as user : GAPTEM01\filip
+Temp directory: C:\temp
+Project directory: C:\Users\filip\Documents\Ansoft
+[error] A geometry must be selected to generate a plot.
+The project 'Cavidade_Eliptica_Eigen' has been edited and/or solved. Do you want to save the changes?
+-- Message Window --
+      *Global - Messages
+        [info] gRPC server started on port 63914 of local host. Only connections from the local host initiated by the same user are permitted. 
+        [error] A geometry must be selected to generate a plot.
+        [info] The project 'Cavidade_Eliptica_Eigen' has been edited and/or solved. Do you want to save the changes?
+      Cavidade_Eliptica_Eigen (C:/Users/filip/Documents/Ansoft/)
+        Cavidade (Eigenmode)
+          [info] Normal completion of simulation on server: Local Machine. (12:07:56 PM  Sep 15, 2026)
+          [warning] 'dB' plot setting option is not supported for vector field plot: 'Vector_E1' (12:16:10 PM  Sep 15, 2026)
+-- Message Window --
+Stopping Batch Run: 12:17:07 PM  Sep 15, 2026
