@@ -8,14 +8,14 @@ except ImportError as e:
     print(f"Erro ao importar ansys.aedt.core: {e}")
     exit(1)
 
-class CavidadeElipticaEigenmode:
+class CavidadeElipticaEigenmodeOca:
     def __init__(self, non_graphical=False, num_modes=6):
-        print("Iniciando o HFSS via PyAEDT (Eigenmode)...")
+        print("Iniciando o HFSS via PyAEDT (Eigenmode - Cavidade Oca)...")
         self.num_modes = num_modes
         self.hfss = Hfss(
             non_graphical=non_graphical,
             new_desktop=False,
-            project="Cavidade_Eliptica_Eigen",
+            project="Cavidade_Eliptica_Eigen_Oca",
             design="Cavidade",
             solution_type="Eigenmode",
             remove_lock=True
@@ -31,27 +31,21 @@ class CavidadeElipticaEigenmode:
         self.hfss["$a"] = "36.37mm"
         self.hfss["$b"] = "24.26mm"
         self.hfss["$L"] = "-28.89mm"
-        self.hfss["$cobre_pec"] = "1mm"
+        self.hfss["$cobre_pec"] = "0.001mm"
         
         self.hfss["$a2"] = "$a + $cobre_pec"
         self.hfss["$b2"] = "$b + $cobre_pec"
         # O vetor L2 precisa varrer do topo (+$cobre_pec) até o fundo (-$cobre_pec abaixo de L)
         self.hfss["$L2"] = "$L - 2 * $cobre_pec"
         
-        # Calculando $c no Python
+        # Calculando $c no Python (mantido apenas por referência, conectores foram removidos)
         a_val = 36.37
         b_val = 24.26
         c_val = np.sqrt(a_val**2 - b_val**2)
         self.hfss["$c"] = f"{c_val}mm"
-        
-        # Conectores coaxiais
-        self.hfss["$conector_h"] = "10mm"
-        self.hfss["$conector_rad"] = "1.5mm"
-        self.hfss["$conector_rad_in"] = "0.4mm"
-        self.hfss["$conector_h_m"] = "25mm"
 
     def create_geometry(self):
-        """Constrói a cavidade de vidro, a carcaça de metal e os pinos."""
+        """Constrói a cavidade de vidro e a carcaça de metal. Os conectores foram removidos."""
         print("Construindo geometria 3D...")
         self.hfss.modeler.model_units = "mm"
 
@@ -87,47 +81,8 @@ class CavidadeElipticaEigenmode:
         # Subtrai o vidro do metal para criar a casca (hollow)
         self.hfss.modeler.subtract(tool_list=[glass_cavity.name], blank_list=[metal_cavity.name], keep_originals=True)
 
-        # 3. Portas Coaxiais (nos focos da elipse $c e -$c)
-        focos_x = ["$c", "-$c"]
-        port_names = ["P1", "P2"]
-
-        for i, fx in enumerate(focos_x):
-            # Dielétrico do Coaxial (Teflon)
-            teflon = self.hfss.modeler.create_cylinder(
-                orientation="Z",
-                origin=[fx, 0, 0],
-                radius="$conector_rad",
-                height="$cobre_pec + $conector_h",
-                name=f"Teflon_{port_names[i]}",
-                material="Teflon_based"
-            )
-            
-            # Pino Interno (Cobre)
-            pino = self.hfss.modeler.create_cylinder(
-                orientation="Z",
-                origin=[fx, 0, "$cobre_pec + $conector_h"],
-                radius="$conector_rad_in",
-                height="-$conector_h_m - $cobre_pec - $conector_h",
-                name=f"Pino_{port_names[i]}",
-                material="copper"
-            )
-            
-            # Subtrações Booleans
-            self.hfss.modeler.subtract(tool_list=[teflon.name], blank_list=[metal_cavity.name], keep_originals=True)
-            self.hfss.modeler.subtract(tool_list=[pino.name], blank_list=[teflon.name], keep_originals=True)
-            self.hfss.modeler.subtract(tool_list=[pino.name], blank_list=[glass_cavity.name], keep_originals=True)
-            
-            # Condutor Externo do Coaxial (PEC na parede externa do Teflon que sobe)
-            teflon_faces = teflon.faces
-            top_face = teflon.top_face_z
-            bottom_face = teflon.bottom_face_z
-            
-            for f in teflon_faces:
-                if f.id != top_face.id and f.id != bottom_face.id:
-                    self.hfss.assign_perfecte_to_sheets(f.id, name=f"PEC_Outer_{teflon.name}")
-            
-            # Obs: Em simulação Eigenmode não precisamos (nem podemos) configurar Wave Ports.
-            # O pino e o teflon formam a estrutura interna, podemos deixar o topo aberto.
+        # 3. Portas Coaxiais Removidas
+        # Esta é uma simulação puramente oca, revelando apenas os modos teóricos da cavidade.
 
         # ---- CRIAÇÃO DAS FOLHAS PARA PLOTAGEM DE CAMPOS ----
         a_val = 36.37
@@ -185,10 +140,8 @@ class CavidadeElipticaEigenmode:
             setup.props["MaximumPasses"] = 15
             setup.props["MinimumConvergedPasses"] = 2
             setup.props["PercentRefinement"] = 30
-            # Driven modal usava 'Frequency', 'MaximumPasses', etc.
 
     def print_eigenmodes(self):
-        """A extração automática via PyAEDT pode causar crash em versões Student."""
         print("\n--- Resultados Eigenmode ---")
         print("Para visualizar as frequências de ressonância e gerar os gráficos de campo:")
         print("1. Na interface do HFSS, vá até 'Results' -> 'Solution Data'.")
@@ -196,26 +149,18 @@ class CavidadeElipticaEigenmode:
         print("3. Para visualizar os campos, selecione 'Plot_Sheet_XY', 'Plot_Sheet_XZ' ou 'Plot_Sheet_YZ', vá em 'Field Overlays' e plote 'Mag_E' ou 'Mag_H'.")
 
     def plot_fields(self):
-        """Desabilitado para evitar instabilidade no PostProcessor."""
         pass
 
     def close(self):
-        # Removendo release_desktop para manter o HFSS aberto após a simulação para visualização
         pass
 
 if __name__ == "__main__":
-    num_modes = 5  # Número de modos para calcular (pode alterar se quiser mais)
-    cavidade = CavidadeElipticaEigenmode(non_graphical=False, num_modes=num_modes)
+    num_modes = 6
+    cavidade = CavidadeElipticaEigenmodeOca(non_graphical=False, num_modes=num_modes)
     print("Projeto gerado no HFSS! Iniciando a simulação...")
     
-    # Roda a simulação automaticamente (pode levar alguns minutos)
     cavidade.hfss.analyze_setup("Setup1")
-    
-    # Imprime resultados
     cavidade.print_eigenmodes()
     
-    # Plota os campos para os modos
-    cavidade.plot_fields()
-    
-    print("Simulação Eigenmode concluída e campos gerados para todos os modos configurados!")
+    print("Simulação Eigenmode da Cavidade Oca concluída!")
 

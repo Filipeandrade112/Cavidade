@@ -32,9 +32,10 @@ class CavidadeEliptica:
         self.hfss["$L"] = "-28.89mm"
         self.hfss["$cobre_pec"] = "1mm"
         
-        self.hfss["$a2"] = "37.37mm"
-        self.hfss["$b2"] = "25.26mm"
-        self.hfss["$L2"] = "-30.89mm"
+        self.hfss["$a2"] = "$a + $cobre_pec"
+        self.hfss["$b2"] = "$b + $cobre_pec"
+        # O vetor L2 precisa varrer do topo (+$cobre_pec) até o fundo (-$cobre_pec abaixo de L)
+        self.hfss["$L2"] = "$L - 2 * $cobre_pec"
         
         # Calculando $c no Python para evitar bug do Ansys avaliar a raiz em metros e quebrar a simulação
         a_val = 36.37
